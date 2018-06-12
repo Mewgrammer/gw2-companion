@@ -1,0 +1,27 @@
+<form (submit)="onRegister()" [formGroup]="registerForm">
+  <mat-card class="w-100">
+    <mat-card-header>
+      <h3>Registrieren</h3>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="w-100" style="width: 100%">
+          <input matInput type="text" placeholder="Benutzername" autocomplete="section-username" formControlName="username" required>
+          <mat-error *ngIf="!usernameValid()">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <input matInput type="password" minlength="10" placeholder="Passwort" autocomplete="section-password" formControlName="password" required>
+          <mat-hint align="end">{{registerForm.get('password').value?.length || 0}}/10</mat-hint>
+          <mat-error *ngIf="registerForm.get('password').value?.length < 10">Passwort zu kurz - mindestens 10 Zeichen</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100">
+          <input matInput type="password" minlength="10" placeholder="Passwort wiederholen" autocomplete="section-password"  formControlName="repeatPassword" required>
+          <mat-error *ngIf="!passwordsMatch()">Passw&ouml;rter stimmen nicht überein</mat-error>
+          <mat-hint align="end">{{registerForm.get('repeatPassword').value?.length || 0}}/10</mat-hint>
+          <mat-error *ngIf="registerForm.get('repeatPassword').value?.length < 10">Passwort zu kurz - mindestens 10 Zeichen</mat-error>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" class="w-100"> Registrieren </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
