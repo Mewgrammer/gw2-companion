@@ -10,5 +10,6 @@ export class AppComponent {
   title = 'app';
 
   constructor(private messaging: MessagingService) {
+    messaging.sendMessage("");
   }
 }

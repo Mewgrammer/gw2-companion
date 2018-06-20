@@ -1,20 +1,32 @@
-rabbitmq:
-  image: rabbitmq:management
-  ports:
-    - "5672:5672"
-    - "15672:15672"
-mongodb:
-  image: mongo:jessie
-  command: --smallfiles
-  ports:
-    - "27017:27017"
-  environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+messaging:
+    image: rabbitmq:management
+    restart: always
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+postgres:
+    image: postgres:11-alpine
+    restart: always
+    ports: 
+        - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: strenggeheim
+      POSTGRES_DB: guildwars
+pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root
+      PGADMIN_DEFAULT_PASSWORD: toor
+    links: 
+        - postgres
 frontend:
-  image: mewgrammer/gw2:frontend
-  ports: 
-    - "80:80"
-
-    
-  
+    image: mewgrammer/gw2-companion:frontend
+    restart: always
+    ports: 
+        - "80:80"
+    links: 
+        - messaging
