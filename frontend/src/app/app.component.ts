@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MessagingService} from './services/messaging.service';
+import {ApiService} from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,6 @@ import {MessagingService} from './services/messaging.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private messaging: MessagingService) {
-    messaging.sendMessage("");
+  constructor() {
   }
 }

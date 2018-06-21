@@ -1,18 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RegisterDialogComponent} from '../register/register-dialog/register-dialog.component';
 import {MatDialog} from '@angular/material';
 import {LoginDialogComponent} from './login-dialog/login-dialog.component';
+import {ApiService} from '../../services/api.service';
+import {Subscription} from 'rxjs';
+import {DataService} from '../../services/data.service';
+import {IUser} from '../../interfaces/User';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(public dialog: MatDialog) { }
+  private userChangedSubscription: Subscription;
+
+  constructor(public dialog: MatDialog, private api: ApiService) { }
 
   ngOnInit() {
+    this.userChangedSubscription = this.api.userChanged.subscribe( (user: IUser) => {
+      console.log("[Login] userChanged",user);
+      this.dialog.closeAll();
+    });
+  }
+
+  ngOnDestroy(){
+    this.userChangedSubscription.unsubscribe();
   }
 
   openDialog(): void {

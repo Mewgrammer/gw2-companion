@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ApiService} from '../../../services/api.service';
+import {IUser} from '../../../interfaces/User';
 
 @Component({
   selector: 'app-login-form',
@@ -10,17 +12,22 @@ export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl(),
+      email: new FormControl(),
       password: new FormControl()
     });
   }
 
   onLogin() {
-
+    const user: IUser = {
+      email: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value,
+      loggedIn: false
+    };
+    this.api.loginUser(user);
   }
 
   getErrorMessage() {

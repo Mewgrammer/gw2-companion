@@ -27,6 +27,7 @@ import { RegisterFormComponent } from './components/register/register-form/regis
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { LoginDialogComponent } from './components/login/login-dialog/login-dialog.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { UserPanelComponent } from './components/user-panel/user-panel.component
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    HttpClientModule,
   ],
   entryComponents: [
     RegisterDialogComponent,

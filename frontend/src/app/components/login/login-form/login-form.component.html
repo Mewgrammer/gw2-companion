@@ -5,7 +5,7 @@
     </mat-card-header>
     <mat-card-content>
       <mat-form-field class="w-100">
-        <input matInput type="text" placeholder="Benutzername" autocomplete="section-username" formControlName="username" required>
+        <input matInput type="text" placeholder="E-Mail" autocomplete="section-username" formControlName="email" required>
         <mat-error *ngIf="!usernameValid()">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="w-100">

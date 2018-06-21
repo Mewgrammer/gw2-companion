@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {IUser} from '../../../interfaces/User';
+import {ApiService} from '../../../services/api.service';
 
 @Component({
   selector: 'app-register-form',
@@ -10,18 +12,24 @@ export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      username: new FormControl(),
+      email: new FormControl(),
       password: new FormControl(),
       repeatPassword: new FormControl(),
+      apiKey: new FormControl()
     });
   }
 
   onRegister() {
-
+      const user: IUser = {
+        email: this.registerForm.get('email').value,
+        password: this.registerForm.get('password').value,
+        apiKey: this.registerForm.get('apiKey').value,
+      };
+      this.api.registerUser(user);
   }
 
   getErrorMessage() {
@@ -29,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   passwordsMatch() {
-    return false;
+   return this.registerForm.get('password').value == this.registerForm.get('repeatPassword').value;
   }
 
   usernameValid() {

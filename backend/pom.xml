@@ -18,7 +18,6 @@
     </parent>
 
     <properties>
-        <docker.image.prefix>springio</docker.image.prefix>
         <java.version>1.8</java.version>
     </properties>
 
