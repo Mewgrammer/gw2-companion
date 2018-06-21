@@ -1,4 +1,5 @@
-FROM java:8u111-jdk
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+COPY ./target/companion-backend-1.0.0.jar app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 EXPOSE 8080
-COPY ./out/artifacts/gw2_companion_backend_jar/gw2-companion-backend.jar ./gw2.jar
-CMD java -jar gw2.jar

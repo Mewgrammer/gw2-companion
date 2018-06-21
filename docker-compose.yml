@@ -1,9 +1,3 @@
-messaging:
-    image: rabbitmq:management
-    restart: always
-    ports:
-        - "5672:5672"
-        - "15672:15672"
 postgres:
     image: postgres:11-alpine
     restart: always
@@ -29,4 +23,11 @@ frontend:
     ports: 
         - "80:80"
     links: 
-        - messaging
+        - backend
+backend:
+    image: mewgrammer/gw2-companion:backend
+    restart: always
+    ports: 
+        - "8080:8080"
+    links: 
+        - postgres
