@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: gw2-companion
+Implementation-Version: 1.0.0
+Built-By: Michael
+Implementation-Vendor-Id: gw2
+Spring-Boot-Version: 2.0.3.RELEASE
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: gw2.api.Application
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/api-service
+

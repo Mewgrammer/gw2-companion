@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+    postgres:
+        image: postgres:11-alpine
+        restart: always
+        ports: 
+            - 5432:5432
+        environment:
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: strenggeheim
+          POSTGRES_DB: guildwars
+    pgadmin:
+        image: dpage/pgadmin4
+        restart: always
+        ports:
+          - 8000:80
+        logging:
+            driver: none
+        environment:
+          PGADMIN_DEFAULT_EMAIL: root
+          PGADMIN_DEFAULT_PASSWORD: toor
+        links: 
+            - postgres
+    eureka:
+        image: mewgrammer/gw2-companion:eureka-server
+        restart: always
+        ports:
+            - 8761:8761

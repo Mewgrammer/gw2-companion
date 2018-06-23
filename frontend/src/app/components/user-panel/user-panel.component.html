@@ -1,3 +1,62 @@
-<p>
-  user-panel works!
-</p>
+<mat-card *ngIf="user != null && user.email != null">
+  <div class="row">
+    <div class="col">
+      <h6>Eingeloggt als {{user.email}}</h6>
+    </div>
+    <div class="col">
+      <button mat-raised-button color="accent" class="float-right" (click)="reloadData()">
+        <mat-icon>refresh</mat-icon>
+        Daten neu laden
+      </button>
+    </div>
+  </div>
+</mat-card>
+<mat-card *ngIf="user == null">
+  <h6>Sie müssen sich zuerst einloggen um diese Seite zu nutzen.</h6>
+</mat-card>
+<mat-card *ngIf="user != null && !userDataPresent()">
+  <h6>Empfange Daten von Guild Wars 2...</h6>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</mat-card>
+<mat-accordion *ngIf="userDataPresent()" multi="true">
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Account
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-account-info ></app-account-info>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Charaktere
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-characters></app-characters>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Währungen
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-wallet></app-wallet>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bank
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-bank></app-bank>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Erfolge
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-achievements></app-achievements>
+  </mat-expansion-panel>
+</mat-accordion>

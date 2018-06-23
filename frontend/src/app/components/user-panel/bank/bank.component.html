@@ -1,0 +1,29 @@
+<div *ngIf=" user == null">
+  <h4>Bitte logge dich ein um diese Seite zu nutzen</h4>
+  <div class="row">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div>
+</div>
+<div *ngIf=" user != null && user.data != null">
+  <table *ngIf="user.data.bank != null" class="table table-borderless">
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>Anzahl</th>
+      <th>Level</th>
+      <th>Beschreibung</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of user.data.bank">
+        <td>
+          <img *ngIf="item.itemInfo.icon != null" width="25px" height="25px" [src]="item.itemInfo.icon">
+        </td>
+        <td>{{item.itemInfo.name}}</td>
+        <td>{{item.item.count == null ? item.item.charges  : item.item.count}}</td>
+        <td>{{item.itemInfo.level}}</td>
+        <td>{{item.itemInfo.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

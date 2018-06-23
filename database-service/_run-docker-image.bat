@@ -1,0 +1,1 @@
+docker run --rm -p 8090:8090 --link eureka:eureka --link postgres:postgres mewgrammer/gw2-companion:database-service

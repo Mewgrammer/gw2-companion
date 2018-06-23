@@ -1,18 +1,14 @@
-<div class="w-100">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-icon-button style="margin-right: 10px;">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <button mat-button routerLink="/" style="font-size: 20px;">Guild Wars 2 Companion</button>
-      <app-nav></app-nav>
-      <span class="nav-spacer"></span>
-      <app-login *ngIf="!userLoggedIn()" mat-button style="font-size: 14px; color: white" class="text-white"></app-login>
-      <app-register *ngIf="!userLoggedIn()" mat-button></app-register>
-      <button *ngIf="userLoggedIn()" (click)="logout()" mat-button class="text-white">Logout</button>
-      <button mat-icon-button routerLink="userpanel"  *ngIf="userLoggedIn()" style="margin-right: 10px;">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button routerLink="/" style="font-size: 20px;">Guild Wars 2 Companion</button>
+    <app-nav></app-nav>
+    <span class="nav-spacer"></span>
+    <app-login *ngIf="!userLoggedIn()" style="font-size: 14px; color: white" class="text-white"></app-login>
+    <app-register *ngIf="!userLoggedIn()"></app-register>
+    <button *ngIf="userLoggedIn()" (click)="logout()" mat-button class="text-white">Logout</button>
+    <button mat-button routerLink="userpanel"  *ngIf="userLoggedIn()" style="margin-right: 10px;">
+      <mat-icon>account_circle</mat-icon>
+      Account
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

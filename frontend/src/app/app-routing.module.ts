@@ -2,15 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {HomeViewComponent} from './views/homeview/home-view.component';
 import {UserPanelComponent} from './components/user-panel/user-panel.component';
-import {MapComponent} from './components/map/map.component';
-import {EventsComponent} from './components/events/events.component';
+import {CharactersComponent} from './components/user-panel/characters/characters.component';
+import {WalletComponent} from './components/user-panel/wallet/wallet.component';
+import {BankComponent} from './components/user-panel/bank/bank.component';
+import {InfoComponent} from './components/info/info.component';
+import {AchievementsComponent} from './components/user-panel/achievements/achievements.component';
 
 
 const appRoutes = [
   { path: '', component:  HomeViewComponent},
   { path: 'userpanel', component:  UserPanelComponent},
-  { path: 'map', component:  MapComponent},
-  { path: 'events', component:  EventsComponent},
+  { path: 'characters', component:  CharactersComponent},
+  { path: 'currencies', component:  WalletComponent},
+  { path: 'bank', component:  BankComponent},
+  { path: 'achievements', component:  AchievementsComponent},
+  { path: 'about', component:  InfoComponent},
 ];
 
 @NgModule({

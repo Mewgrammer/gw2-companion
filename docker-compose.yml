@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+    postgres:
+        image: postgres:11-alpine
+        restart: always
+        ports: 
+            - 5432:5432
+        environment:
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: strenggeheim
+          POSTGRES_DB: guildwars
+        networks:
+            - guildwars
+    pgadmin:
+        image: dpage/pgadmin4
+        restart: always
+        ports:
+          - 8000:80
+        logging:
+            driver: none
+        environment:
+          PGADMIN_DEFAULT_EMAIL: root
+          PGADMIN_DEFAULT_PASSWORD: toor
+        networks:
+            - guildwars
+    eureka:
+        image: mewgrammer/gw2-companion:eureka-server
+        restart: always
+        ports:
+            - 8761:8761
+        networks:
+            - guildwars
+    database:
+        image: mewgrammer/gw2-companion:database-service
+        restart: always
+        depends_on:
+            - eureka
+            - postgres
+        ports:
+            - 8090:8090
+        networks:
+            - guildwars
+    api:
+        image: mewgrammer/gw2-companion:api-service
+        restart: always
+        depends_on:
+            - eureka
+            - database
+        ports:
+            - 8080:8080
+        networks:
+            - guildwars
+    frontend:
+        image: mewgrammer/gw2-companion:frontend
+        restart: always
+        depends_on:
+            - eureka
+            - database
+            - api
+        ports:
+            - 80:80
+        networks:
+            - guildwars
+
+networks:
+    guildwars:
+        driver: bridge

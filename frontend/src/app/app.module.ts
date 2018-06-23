@@ -5,17 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { MapComponent } from './components/map/map.component';
-import { EventsComponent } from './components/events/events.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
-import { FooterComponent } from './components/footer/footer.component';
 import {
   MatAutocompleteModule,
-  MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDialogModule,
+  MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSnackBarModule,
+  MatListModule, MatMenuModule, MatProgressBarModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSnackBarModule,
   MatSortModule,
   MatTableModule, MatTabsModule, MatToolbarModule
 } from '@angular/material';
@@ -28,6 +25,12 @@ import { LoginFormComponent } from './components/login/login-form/login-form.com
 import { LoginDialogComponent } from './components/login/login-dialog/login-dialog.component';
 import { UserPanelComponent } from './components/user-panel/user-panel.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AccountInfoComponent } from './components/user-panel/account-info/account-info.component';
+import { CharactersComponent } from './components/user-panel/characters/characters.component';
+import { WalletComponent } from './components/user-panel/wallet/wallet.component';
+import { BankComponent } from './components/user-panel/bank/bank.component';
+import { AchievementsComponent } from './components/user-panel/achievements/achievements.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -36,17 +39,20 @@ import {HttpClientModule} from '@angular/common/http';
     RegisterComponent,
     HomeComponent,
     HomeComponent,
-    MapComponent,
-    EventsComponent,
     HeaderComponent,
     NavComponent,
-    FooterComponent,
     HomeViewComponent,
     RegisterDialogComponent,
     RegisterFormComponent,
     LoginFormComponent,
     LoginDialogComponent,
     UserPanelComponent,
+    AccountInfoComponent,
+    CharactersComponent,
+    WalletComponent,
+    BankComponent,
+    AchievementsComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatDialogModule,
     MatCardModule,
     MatListModule,
+    MatProgressBarModule,
     MatInputModule,
     MatButtonModule,
     MatTableModule,
@@ -73,6 +80,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
+    MatExpansionModule,
     MatButtonToggleModule,
     HttpClientModule,
   ],

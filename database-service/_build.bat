@@ -1,0 +1,2 @@
+./mvnw -DskipTests install
+pause

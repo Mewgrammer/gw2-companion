@@ -1,0 +1,29 @@
+<div *ngIf=" user == null">
+  <h4>Bitte logge dich ein um diese Seite zu nutzen</h4>
+  <div class="row">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div>
+</div>
+<div *ngIf=" user != null && user.data != null">
+  <table class="table table-borderless">
+    <thead>
+    <th></th>
+    <th>Name</th>
+    <th>Fortschritt</th>
+    <th>Beschreibung</th>
+    <th>Status</th>
+    <th>Wiederholungen</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let achievement of user.data.achievements">
+      <td><img *ngIf="achievement.achievement.icon != null" width="25px" height="25px" [src]="achievement.achievement.icon"></td>
+      <td>{{achievement.achievement.name}}</td>
+      <td>{{achievement.achievementStatus.current}} / {{achievement.achievementStatus.max}}</td>
+      <td>{{achievement.achievement.description}}</td>
+      <td>{{achievement.achievementStatus.done ? "Fertig" : "Unvollständig"}}</td>
+      <td>{{achievement.achievementStatus.repeated}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

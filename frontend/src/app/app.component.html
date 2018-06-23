@@ -1,15 +1,12 @@
-<div class="container">
-  <div class="row" style="min-width: 100%">
-    <app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <app-header class="w-100"></app-header>
   </div>
   <div class="row">
     <mat-card style="min-width: 100%">
-      <mat-card-content>
+      <mat-card-content class="container-fluid">
         <router-outlet></router-outlet>
       </mat-card-content>
     </mat-card>
-  </div>
-  <div class="row" style="min-width: 100%">
-    <app-footer></app-footer>
   </div>
 </div>

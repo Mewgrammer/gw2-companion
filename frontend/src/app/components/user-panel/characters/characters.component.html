@@ -1,0 +1,63 @@
+<div *ngIf=" user == null">
+  <h4>Bitte logge dich ein um diese Seite zu nutzen</h4>
+  <div class="row">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div>
+</div>
+<div *ngIf=" user != null && user.data != null">
+<mat-expansion-panel *ngFor="let character of user.data.characters">
+  <mat-expansion-panel-header>{{character.name}}</mat-expansion-panel-header>
+  <table class="table table-borderless">
+    <tbody>
+    <tr>
+      <td>Name</td>
+      <td>{{character.name}}</td>
+    </tr>
+    <tr>
+      <td>Klasse</td>
+      <td>{{character.profession}}</td>
+    </tr>
+    <tr>
+      <td>Rasse</td>
+      <td>{{character.race}}</td>
+    </tr>
+    <tr>
+      <td>Geschlecht</td>
+      <td>{{character.gender}}</td>
+    </tr>
+    <tr>
+      <td>Erstellt</td>
+      <td>{{character.created | date}}</td>
+    </tr>
+    <tr>
+      <td>Stufe</td>
+      <td>{{character.level}}</td>
+    </tr>
+    <tr>
+      <td>Tode</td>
+      <td>{{character.deaths}}</td>
+    </tr>
+    <tr>
+      <td>Berufe</td>
+      <td>
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>Stufe</th>
+            <th>Aktiv</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prof of character.crafting">
+              <td>{{prof.discipline}}</td>
+              <td>{{prof.rating}}</td>
+              <td>{{prof.active}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</mat-expansion-panel>
+</div>

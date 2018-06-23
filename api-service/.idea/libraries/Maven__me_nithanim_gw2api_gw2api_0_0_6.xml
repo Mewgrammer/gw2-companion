@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: me.nithanim.gw2api:gw2api:0.0.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/nithanim/gw2api/gw2api/0.0.6/gw2api-0.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/me/nithanim/gw2api/gw2api/0.0.6/gw2api-0.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/me/nithanim/gw2api/gw2api/0.0.6/gw2api-0.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

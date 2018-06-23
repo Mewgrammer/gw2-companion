@@ -1,0 +1,41 @@
+<div *ngIf="user == null">
+  <h4>Bitte logge dich ein um diese Seite zu nutzen</h4>
+  <div class="row">
+    <app-login></app-login>
+    <app-register></app-register>
+  </div>
+</div>
+<div *ngIf=" user != null && user.data != null">
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{user.data.account.name}}</td>
+      </tr>
+      <tr>
+        <td>Erstellt</td>
+        <td>{{user.data.account.created | date}}</td>
+      </tr>
+      <tr>
+        <td>Fraktal Stufe</td>
+        <td>{{user.data.account.fractal_level}}</td>
+      </tr>
+      <tr>
+        <td>Wvw Rang</td>
+        <td>{{user.data.account.wvw_rank}}</td>
+      </tr>
+      <tr>
+        <td>Tägliche Arena Punkte</td>
+        <td>{{user.data.account.daily_ap}}</td>
+      </tr>
+      <tr>
+        <td>Monatliche Arena Punkte</td>
+        <td>{{user.data.account.monthly_ap}}</td>
+      </tr>
+      <tr>
+        <td>Kommandeur</td>
+        <td>{{user.data.account.commander ? "Ja" : "Nein"}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

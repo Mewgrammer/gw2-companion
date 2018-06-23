@@ -1,0 +1,6 @@
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\Application.java
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\exceptions\RestExceptionHandler.java
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\exceptions\CustomHttpException.java
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\controller\UserController.java
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\interfaces\IUserRepository.java
+C:\Users\Michael\Documents\GitHub\gw2-companion\database-service\src\main\java\gw2\database\model\User.java

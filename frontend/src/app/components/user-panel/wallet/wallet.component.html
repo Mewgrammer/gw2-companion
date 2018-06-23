@@ -1,0 +1,26 @@
+<div *ngIf=" user == null">
+  <h4>Bitte logge dich ein um diese Seite zu nutzen</h4>
+  <div class="row">
+      <app-login></app-login>
+      <app-register></app-register>
+  </div>
+</div>
+<div *ngIf=" user != null && user.data != null">
+  <table class="table table-borderless">
+    <thead>
+      <th></th>
+      <th>Name</th>
+      <th>Anzahl</th>
+      <th>Beschreibung</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let currency of user.data.wallet">
+      <td><img width="25px" height="25px" [src]="currency.icon"></td>
+      <td>{{currency.name}}</td>
+      <td>{{currency.value}}</td>
+      <td>{{currency.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

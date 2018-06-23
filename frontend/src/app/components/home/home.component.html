@@ -1,9 +1,10 @@
 <h3>Wilkommen</h3>
-<p>Unsere App ist super toll weil: </p>
-<mat-list>
-  <mat-list-item>Tolles Feature 1</mat-list-item>
-  <mat-list-item>Tolles Feature 2</mat-list-item>
-  <mat-list-item>Tolles Feature  3</mat-list-item>
-  <mat-list-item>Tolles Feature  4</mat-list-item>
-  <mat-list-item>Tolles Feature  5</mat-list-item>
-</mat-list>
+<div *ngIf="!userLoggedIn()">
+  <h5>Bitte logge dich ein um den vollen Umfang dieser Seite zu nutzen </h5>
+  <div class="row">
+      <app-login></app-login>
+      <app-register></app-register>
+  </div>
+</div>
+<app-user-panel *ngIf="userLoggedIn()"></app-user-panel>
+

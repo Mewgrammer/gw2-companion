@@ -1,9 +1,9 @@
-import {IApiData} from './ApiData';
+import {IUserData} from './ApiData';
 
-export interface IUser {
+export interface IUser  {
   email: string;
   password: string;
   apiKey?: string;
   loggedIn?: boolean;
-  data?: IApiData;
+  data?: IUserData;
 }
