@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {IUser} from '../../interfaces/User';
 import {Subscription} from 'rxjs';
-import {IUserData} from '../../interfaces/ApiData';
 
 @Component({
   selector: 'app-user-panel',

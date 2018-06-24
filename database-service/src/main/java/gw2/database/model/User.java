@@ -27,7 +27,7 @@ public class User {
     @Column(name="apiKey")
     private String apiKey;
 
-       @JsonProperty("registrationDate")
+    @JsonProperty("registrationDate")
     @Column(name="registrationDate")
     private Date registrationDate;
 
